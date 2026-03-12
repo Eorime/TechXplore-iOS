@@ -10,9 +10,22 @@
 		FA76B2612F620BB6006EF5CD /* TechXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		FA76B2AD2F62E9B6006EF5CD /* Exceptions for "TechXplore" folder in "Compile Sources" phase from "TechXplore" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = FA76B25D2F620BB6006EF5CD /* Sources */;
+			membershipExceptions = (
+				Data/LocalData/questions.json,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FA76B2632F620BB6006EF5CD /* TechXplore */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FA76B2AD2F62E9B6006EF5CD /* Exceptions for "TechXplore" folder in "Compile Sources" phase from "TechXplore" target */,
+			);
 			path = TechXplore;
 			sourceTree = "<group>";
 		};

@@ -1,0 +1,54 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Let's determine your \ntravel type. Up for a quiz?",
+      "options": [
+        { "text": "I need to do my shopping first.", "type": "lifestyle" },
+        { "text": "I'm going to a bar, maybe later.", "type": "nightlifer" },
+        { "text": "Just ordered food, I guess I have time.", "type": "gourmet" },
+        { "text": "New theater tickets dropped!", "type": "culture" }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "First night in a new city?",
+      "options": [
+        { "text": "Taste local, authentic cuisine", "type": "gourmet" },
+        { "text": "Check out the bars and clubs first", "type": "nightlifer" },
+        { "text": "Evening walk through the old town", "type": "culture" },
+        { "text": "Relax at the hotel bar, grab a drink", "type": "lifestyle" }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Your travel photos are mostly...",
+      "options": [
+        { "text": "Yummy, pretty looking food and drinks", "type": "gourmet" },
+        { "text": "Night outs with old and new friends", "type": "nightlifer" },
+        { "text": "Pieces of art, museums, theater plays", "type": "culture" },
+        { "text": "Views, beaches, mountains", "type": "lifestyle" }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "You pick a destination based on...",
+      "options": [
+        { "text": "The interesting food scene", "type": "gourmet" },
+        { "text": "Known clubs, bars, unique night life", "type": "nightlifer" },
+        { "text": "Famous landmarks, galleries", "type": "culture" },
+        { "text": "Beaches, mountains, views", "type": "lifestyle" }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Your travel budget goes mostly on...",
+      "options": [
+        { "text": "Restaurants, cafes and food stands", "type": "gourmet" },
+        { "text": "Clubs, bars and social events", "type": "nightlifer" },
+        { "text": "Museum tours, gallery tickets", "type": "culture" },
+        { "text": "Stays, experiences, rides, walks", "type": "lifestyle" }
+      ]
+    }
+  ]
+}

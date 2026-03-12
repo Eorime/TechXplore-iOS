@@ -11,7 +11,12 @@ import SwiftUI
 struct TechXploreApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
+        
     }
+}
+
+#Preview {
+    MainView()
 }
