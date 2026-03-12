@@ -27,4 +27,13 @@ enum TravelerType: String, Codable, CaseIterable {
            case .culture:    return Color("AppYellow")
         }
     }
+    
+    var icon: String {
+        switch self {
+        case .gourmet:    return "gourmet"
+        case .nightlifer: return "nightlife"
+        case .lifestyle:  return "lifestyle"
+        case .culture:    return "culture"
+        }
+    }
 }

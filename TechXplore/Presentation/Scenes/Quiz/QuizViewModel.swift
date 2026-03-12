@@ -1,16 +1,17 @@
 import SwiftUI
+import Combine
 
-@Observable
-final class QuizViewModel {
+final class QuizViewModel: ObservableObject {
     //MARK: Properties
-    var currentQuestionIndex = 0
-    var quizComplete = false
-    var result: TravelerType?
-    var answerHistory: [(questionIndex: Int, type: TravelerType)]
-    var pendingSelection: TravelerType?
-    var currentQuestion: QuizQuestion {
+    @Published var currentQuestionIndex = 0
+    @Published var quizComplete = false
+    @Published var result: TravelerType?
+    @Published var answerHistory: [(questionIndex: Int, type: TravelerType)] = []
+    @Published var pendingSelection: TravelerType?
+    
+    var currentQuestion: QuizQuestion? {
         guard !questions.isEmpty, currentQuestionIndex < questions.count else {
-            fatalError("no questions loaded")
+            return nil
         }
         return questions[currentQuestionIndex]
     }
@@ -23,11 +24,6 @@ final class QuizViewModel {
     init(useCase: QuizUseCase, repository: QuizRepositoryProtocol) {
         self.useCase = useCase
         self.repository = repository
-        self.answerHistory = []
-        self.pendingSelection = nil
-        self.currentQuestionIndex = 0
-        self.quizComplete = false
-        self.result = nil
         self.questions = repository.getQuestions()
     }
     

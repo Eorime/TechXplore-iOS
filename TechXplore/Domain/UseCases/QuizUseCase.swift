@@ -10,14 +10,14 @@ class QuizUseCase {
         scores[type, default: 0] += 1
     }
     
-    func goBack() -> TravelerType? {
-        guard let last = answerHistory.last else { return nil }
+    func goBack() {
+        guard let last = answerHistory.last else { return }
         scores[last.type, default: 0] -= 1
         answerHistory.removeLast()
-        return last.type
     }
     
     func getResult() -> TravelerType {
+        print("Final scores: \(scores)")
         let ordered: [TravelerType] = [.gourmet, .nightlifer, .lifestyle, .culture]
         let maxScore = scores.values.max() ?? 0
         return ordered.first { scores[$0] == maxScore} ?? .gourmet
