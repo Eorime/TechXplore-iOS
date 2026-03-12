@@ -60,7 +60,7 @@ struct QuizView: View {
             
             Text("I'll choose the type")
                 .font(.system(size: 18, weight: .medium))
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.horizontal, 34)
                 .foregroundStyle(Color("AppCyan"))
             //es linkia
