@@ -10,7 +10,7 @@ struct TransactionsView: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 24)
             
-            if viewModel.isLoading && $viewModel.groupedTransactions.isEmpty {
+            if viewModel.isLoading && viewModel.groupedTransactions.isEmpty {
                 Spacer()
                 ProgressView()
                     .tint(Color("AppCyan"))
@@ -52,6 +52,10 @@ struct TransactionsView: View {
                     .padding(.horizontal, 20)
                 }
                 .scrollIndicators(.hidden)
+                
+                WalletSection()
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 30)
             }
         }
         .padding(.top, 20)

@@ -16,7 +16,3 @@ struct TechXploreApp: App {
         
     }
 }
-
-#Preview {
-    MainView()
-}

@@ -4,7 +4,8 @@ struct MainView: View {
     @EnvironmentObject var router: AppRouter
     @StateObject private var viewModel = DIContainer.shared.makeMainViewModel()
     @State private var showBudgetModal = false
-    
+    @Binding var selectedTab: Int
+
     var persona: TravelerType {
         router.currentUser?.persona ?? .gourmet
     }
@@ -45,7 +46,9 @@ struct MainView: View {
                         }
                     }
                     
-                    TransactionsSection(transactions: [], onSeeMore: {})
+                    TransactionsSection(transactions: viewModel.transactions, onSeeMore: {
+                        selectedTab = 0
+                    })
                 }
                 .padding(.horizontal, 20)
             }
@@ -58,10 +61,8 @@ struct MainView: View {
             .presentationDetents([.medium])
             .presentationCornerRadius(16)
         }
+        .onAppear {
+            viewModel.loadTransactions()
+        }
     }
-}
-
-#Preview {
-    MainView()
-        .environmentObject(AppRouter())
 }

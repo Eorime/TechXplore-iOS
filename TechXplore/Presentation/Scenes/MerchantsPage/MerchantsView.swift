@@ -40,7 +40,6 @@ struct MerchantsView: View {
             }
         }
         .padding(.top, 20)
-        .padding(.bottom, 20)
         .onAppear {
             viewModel.loadMerchants()
         }

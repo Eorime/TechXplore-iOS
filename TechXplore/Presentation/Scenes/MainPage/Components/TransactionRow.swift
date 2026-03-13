@@ -36,7 +36,7 @@ struct TransactionRow: View {
             
             Spacer()
             
-            Text("-\(Int(item.amount))€")
+            Text("-\(Int(item.amount))$")
                 .font(.system(size: 11, weight: .medium))
                 .foregroundStyle(Color("AppBlack"))
         }

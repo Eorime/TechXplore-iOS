@@ -25,4 +25,8 @@ final class DIContainer {
     func makeMerchantsViewModel() -> MerchantsViewModel {
         MerchantsViewModel(repository: MerchantRepository())
     }
+    
+    func makeWalletViewModel() -> WalletViewModel {
+        WalletViewModel(repository: WalletRepository())
+    }
 }

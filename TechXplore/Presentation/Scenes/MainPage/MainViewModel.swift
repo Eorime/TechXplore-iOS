@@ -6,6 +6,7 @@ final class MainViewModel: ObservableObject {
     @Published var offers: [SpecialOffer] = []
     @Published var isLoadingOffers = false
     @Published var offersError: String?
+    @Published var transactions: [TransactionItem] = []
     
     private let recommendationUseCase: RecommendationUseCase
     
@@ -24,6 +25,18 @@ final class MainViewModel: ObservableObject {
                 offersError = "Failed to load recommendations."
             }
             isLoadingOffers = false
+        }
+    }
+    
+    
+    func loadTransactions() {
+        Task { @MainActor in
+            do {
+                let response = try await TransactionUseCase(repository: TransactionRepository()).getSentTransactions(page: 1, pageSize: 4)
+                transactions = response.items
+            } catch {
+                print("Home transactions error: \(error)")
+            }
         }
     }
 }

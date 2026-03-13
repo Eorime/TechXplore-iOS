@@ -1,12 +1,3 @@
-//
-//  SetPersonaRequest.swift
-//  TechXplore
-//
-//  Created by Eorime on 13.03.26.
-//
-
-
-// Features/User/Repository/UserRepository.swift
 struct SetPersonaRequest: Encodable {
     let personaId: Int
 }

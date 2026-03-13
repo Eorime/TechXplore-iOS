@@ -21,7 +21,7 @@ struct MainTabView: View {
                 .padding(.horizontal, 5)
                 .tabItem { Label("", image: "transactions") }
                 .tag(0)
-            MainView()
+            MainView(selectedTab: $selectedTab)
                 .padding(.horizontal, 5)
                 .tabItem { Label("", image: "home") }
                 .tag(1)

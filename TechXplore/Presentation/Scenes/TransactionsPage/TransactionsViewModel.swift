@@ -1,4 +1,3 @@
-// Features/Transactions/ViewModel/TransactionsViewModel.swift
 import SwiftUI
 import Combine
 
@@ -17,6 +16,8 @@ final class TransactionsViewModel: ObservableObject {
     }
     
     func loadTransactions() {
+        currentPage = 1
+        groupedTransactions = []
         isLoading = true
         errorMessage = nil
         Task { @MainActor in
@@ -27,7 +28,6 @@ final class TransactionsViewModel: ObservableObject {
             } catch {
                 errorMessage = "Failed to load transactions."
                 print("Transaction error: \(error)")
-
             }
             isLoading = false
         }
@@ -36,7 +36,18 @@ final class TransactionsViewModel: ObservableObject {
     func loadMore() {
         guard hasNextPage else { return }
         currentPage += 1
-        loadTransactions()
+        isLoading = true
+        Task { @MainActor in
+            do {
+                let response = try await useCase.getSentTransactions(page: currentPage, pageSize: pageSize)
+                hasNextPage = response.hasNextPage
+                appendAndGroup(response.items)
+            } catch {
+                errorMessage = "Failed to load transactions."
+                print("Transaction error: \(error)")
+            }
+            isLoading = false
+        }
     }
     
     private func appendAndGroup(_ items: [TransactionItem]) {

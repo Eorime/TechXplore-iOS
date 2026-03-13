@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MerchantCard: View {
     let merchant: Merchant
+    @State private var showPayment = false
     
     var travelerType: TravelerType? {
         merchant.persona.travelerType
@@ -38,5 +39,13 @@ struct MerchantCard: View {
         .frame(width: 150, height: 100)
         .background((travelerType?.color ?? Color("AppCyan")).opacity(0.1))
         .cornerRadius(6)
+        .onTapGesture {
+                    showPayment = true
+                }
+                .sheet(isPresented: $showPayment) {
+                    PaymentModalView(merchant: merchant, isPresented: $showPayment)
+                        .presentationDetents([.medium])
+                        .presentationCornerRadius(16)
+        }
     }
 }
