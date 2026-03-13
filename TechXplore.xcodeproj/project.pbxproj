@@ -10,6 +10,16 @@
 		FA76B2612F620BB6006EF5CD /* TechXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FA76B3612F643B59006EF5CD /* Exceptions for "TechXplore" folder in "TechXplore" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = FA76B2602F620BB6006EF5CD /* TechXplore */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 		FA76B2AD2F62E9B6006EF5CD /* Exceptions for "TechXplore" folder in "Compile Sources" phase from "TechXplore" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
@@ -24,6 +34,7 @@
 		FA76B2632F620BB6006EF5CD /* TechXplore */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				FA76B3612F643B59006EF5CD /* Exceptions for "TechXplore" folder in "TechXplore" target */,
 				FA76B2AD2F62E9B6006EF5CD /* Exceptions for "TechXplore" folder in "Compile Sources" phase from "TechXplore" target */,
 			);
 			path = TechXplore;
@@ -266,6 +277,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechXplore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -298,6 +310,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechXplore/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

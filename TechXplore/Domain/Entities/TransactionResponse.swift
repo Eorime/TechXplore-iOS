@@ -44,3 +44,12 @@ struct TransactionPersona: Decodable {
     let name: String
     let description: String
 }
+
+struct TransactionPageResponse: Decodable {
+    let items: [TransactionItem]
+    let totalCount: Int
+    let page: Int
+    let pageSize: Int
+    let hasPreviousPage: Bool
+    let hasNextPage: Bool
+}

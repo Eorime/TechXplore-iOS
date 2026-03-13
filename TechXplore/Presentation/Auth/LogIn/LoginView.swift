@@ -18,10 +18,11 @@ struct LoginView: View {
         NavigationStack {
             VStack(spacing: 20) {
                 Image("logo")
-                    .frame(width: 85)
+                    .frame(width: 60)
                 Text("Hello, traveller!")
                     .font(.system(size: 32, weight: .medium))
                     .foregroundStyle(Color("AppCyan"))
+                    .padding(.bottom, 60)
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Email")
                         .font(.system(size: 16, weight: .medium))
@@ -51,10 +52,6 @@ struct LoginView: View {
                         )
                 }
                 
-                CustomButton(title: "Log In", width: .infinity, height: 45, action: {
-                    viewModel.login(email: email, password: password)
-                }, fontWeight: .semibold)
-                
                 HStack {
                     Text("No account?")
                         .font(.system(size: 14, weight: .regular))
@@ -67,8 +64,14 @@ struct LoginView: View {
                     .foregroundStyle(Color("AppCyan"))
                 }
                 .padding(.horizontal, 3)
+                .padding(.bottom, 100)
+                CustomButton(title: "Log In", width: .infinity, height: 45, action: {
+                    viewModel.login(email: email, password: password)
+                }, fontWeight: .semibold)
+                
             }
-            .padding(50)
+            .padding(.horizontal, 50)
+            .padding(.top, -100)
             .navigationDestination(isPresented: $goToSignup) {
                 SignupView()
                     .environmentObject(router)

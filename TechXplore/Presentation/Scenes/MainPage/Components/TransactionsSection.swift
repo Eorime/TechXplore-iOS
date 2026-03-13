@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TransactionsSection: View {
-    let transactions: [Transaction]
+    let transactions: [TransactionItem]
     var onSeeMore: (() -> Void)? = nil
     
     var body: some View {
@@ -14,7 +14,7 @@ struct TransactionsSection: View {
             ScrollView {
                 VStack(spacing: 0) {
                     ForEach(Array(transactions.enumerated()), id: \.offset) { index, transaction in
-                        TransactionRow(transaction: transaction, isLast: index == transactions.count - 1)
+                        TransactionRow(item: transaction, isLast: index == transactions.count - 1)
                     }
                 }
             }
@@ -29,7 +29,8 @@ struct TransactionsSection: View {
                     .foregroundStyle(Color("AppCyan"))
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
-            .padding(.vertical, 8)
+            .padding(.top, 8)
+            .padding(.bottom, 20)
             .padding(.horizontal, 4)
         }
     }

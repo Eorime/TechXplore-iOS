@@ -26,8 +26,11 @@ struct ResultView: View {
             
             Spacer().frame(height: 87)
             
-            Text("Placeholder text")
+            Text(result.text)
                 .foregroundStyle(Color(result.color))
+                .font(.system(size: 20, weight: .medium))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 20)
             
             Spacer().frame(height: 87)
             

@@ -14,21 +14,31 @@ final class AppRouter: ObservableObject {
     init() {
         // On launch: no user → go to auth
         // replace es logic with real session checking later
-        self.state = .main
+        self.state = .auth
         self.currentUser = User(id: "1", email: "test@test.com", username: "Anon", persona: .gourmet)
     }
     
     func userDidLogin(_ user: User) {
         currentUser = user
-        if user.persona == nil {
-            state = .onboarding
-        } else {
-            state = .main
+        Task { @MainActor in
+            do {
+                let me = try await UserRepository().getMe()
+                if let persona = me.persona {
+                    currentUser?.persona = TravelerType.fromPersonaId(persona.id)
+                    currentUser?.personaDescription = persona.description
+                }
+                state = currentUser?.persona == nil ? .onboarding : .main
+            } catch {
+                state = .onboarding
+            }
         }
     }
     
     func onboardingDidComplete(persona: TravelerType) {
         currentUser?.persona = persona
+        Task {
+            try? await UserRepository().setPersona(persona)
+        }
         state = .main
     }
     

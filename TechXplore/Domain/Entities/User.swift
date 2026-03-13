@@ -3,4 +3,5 @@ struct User: Decodable {
     let email: String
     let username: String
     var persona: TravelerType?
+    var personaDescription: String?
 }

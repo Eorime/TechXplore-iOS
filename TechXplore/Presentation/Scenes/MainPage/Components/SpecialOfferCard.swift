@@ -1,10 +1,3 @@
-//
-//  SpecialOfferCard.swift
-//  TechXplore
-//
-//  Created by Eorime on 13.03.26.
-//
-
 import SwiftUI
 
 struct SpecialOfferCard: View {
@@ -13,19 +6,26 @@ struct SpecialOfferCard: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text(offer.name)
-                .font(.system(size: 14, weight: .semibold))
-                .foregroundStyle(Color("AppBlack"))
+            HStack {
+                Text(offer.name)
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(Color("AppBlack"))
+                Spacer()
+                Text("\(offer.estimatedCost)$")
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(persona.color)
+            }
             Text(offer.address)
-                .font(.system(size: 12, weight: .regular))
+                .font(.system(size: 11, weight: .regular))
                 .foregroundStyle(Color("AppBlack").opacity(0.7))
             Text(offer.matchReason)
-                .font(.system(size: 12, weight: .regular))
+                .font(.system(size: 9, weight: .regular))
                 .foregroundStyle(Color("AppBlack").opacity(0.7))
+                .lineLimit(2)
         }
-        .padding(14)
+        .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color(persona.color).opacity(0.1))
-        .cornerRadius(12)
+        .cornerRadius(6)
     }
 }

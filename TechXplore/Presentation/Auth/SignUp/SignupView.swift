@@ -58,8 +58,8 @@ struct SignupView: View {
             }
             
             CustomButton(title: "Sign Up", width: .infinity, height: 47, action: {
-                guard password == confirmPassword else {
-                    viewModel.errorMessage = "Passwords don't match"
+                if let error = viewModel.validate(username: username, email: email, password: password, confirmPassword: confirmPassword) {
+                    viewModel.errorMessage = error
                     return
                 }
                 viewModel.register(username: username, email: email, password: password)
@@ -68,7 +68,7 @@ struct SignupView: View {
             Spacer()
         }
         .padding(50)
-        .padding(.top, -50)
+        .padding(.top, -20)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .principal) {

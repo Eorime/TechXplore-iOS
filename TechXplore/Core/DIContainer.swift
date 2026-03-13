@@ -13,4 +13,8 @@ final class DIContainer {
     func makeAuthViewModel() -> AuthViewModel {
         AuthViewModel(useCase: AuthUseCase(repository: AuthRepository()))
     }
+    
+    func makeTransactionsViewModel() -> TransactionsViewModel {
+        TransactionsViewModel(useCase: TransactionUseCase(repository: TransactionRepository()))
+    }
 }

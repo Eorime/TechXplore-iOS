@@ -10,7 +10,6 @@ struct RegisterRequest: Encodable {
     let email: String
     let password: String
     let role: Int = 1
-    let description: String = ""
 }
 
 struct LoginRequest: Encodable {
@@ -20,5 +19,4 @@ struct LoginRequest: Encodable {
 
 struct AuthResponse: Decodable {
     let token: String
-    let user: User
 }
