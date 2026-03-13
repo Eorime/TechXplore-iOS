@@ -14,6 +14,7 @@
 		FA76B3612F643B59006EF5CD /* Exceptions for "TechXplore" folder in "TechXplore" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"Core/Features/Extensions/String+Extension.swift",
 				Info.plist,
 			);
 			target = FA76B2602F620BB6006EF5CD /* TechXplore */;
@@ -28,6 +29,13 @@
 				Data/LocalData/questions.json,
 			);
 		};
+		FA76B3812F647260006EF5CD /* Exceptions for "TechXplore" folder in "Copy Bundle Resources" phase from "TechXplore" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = FA76B25F2F620BB6006EF5CD /* Resources */;
+			membershipExceptions = (
+				"Core/Features/Extensions/String+Extension.swift",
+			);
+		};
 /* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -36,6 +44,7 @@
 			exceptions = (
 				FA76B3612F643B59006EF5CD /* Exceptions for "TechXplore" folder in "TechXplore" target */,
 				FA76B2AD2F62E9B6006EF5CD /* Exceptions for "TechXplore" folder in "Compile Sources" phase from "TechXplore" target */,
+				FA76B3812F647260006EF5CD /* Exceptions for "TechXplore" folder in "Copy Bundle Resources" phase from "TechXplore" target */,
 			);
 			path = TechXplore;
 			sourceTree = "<group>";

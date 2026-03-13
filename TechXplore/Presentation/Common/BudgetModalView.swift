@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct BudgetModalView: View {
@@ -10,12 +9,12 @@ struct BudgetModalView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 24) {
             Text("Tell us your specifics")
-                .font(.system(size: 24, weight: .medium))
+                .font(.system(size: 20, weight: .medium))
                 .foregroundStyle(Color("AppCyan"))
             
             VStack(alignment: .leading, spacing: 8) {
                 Text("Location")
-                    .font(.system(size: 16, weight: .medium))
+                    .font(.system(size: 14, weight: .medium))
                     .foregroundStyle(Color("AppCyan"))
                 TextField("e.g. Tokyo", text: $location)
                     .autocapitalization(.none)
@@ -26,7 +25,7 @@ struct BudgetModalView: View {
             
             VStack(alignment: .leading, spacing: 8) {
                 Text("Max Budget ($)")
-                    .font(.system(size: 16, weight: .medium))
+                    .font(.system(size: 14, weight: .medium))
                     .foregroundStyle(Color("AppCyan"))
                 TextField("e.g. 500", text: $budget)
                     .keyboardType(.decimalPad)
@@ -42,9 +41,9 @@ struct BudgetModalView: View {
                 isPresented = false
             }, fontWeight: .semibold)
         }
-        .padding(30)
         .background(Color("AppWhite"))
         .cornerRadius(8)
         .padding(.horizontal, 20)
+        .padding(.top, -30)
     }
 }

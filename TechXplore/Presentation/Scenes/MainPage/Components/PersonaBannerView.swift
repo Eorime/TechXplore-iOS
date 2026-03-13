@@ -28,10 +28,4 @@ struct PersonaBannerView: View {
     }
 }
 
-#Preview {
-    VStack(spacing: 20) {
-        PersonaBannerView(persona: .gourmet, description: "The Gourmet - your trips revolve around food.")
-        PersonaBannerView(persona: .culture, description: "The Culture Seeker - museums, theaters and landmarks.")
-    }
-    .padding(20)
-}
+//choose another type when u click on it, dismissit 

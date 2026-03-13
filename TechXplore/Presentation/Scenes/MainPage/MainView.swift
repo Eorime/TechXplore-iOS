@@ -22,20 +22,24 @@ struct MainView: View {
                     PersonaBannerView(persona: persona, description: persona.shortText)
                     
                     VStack(alignment: .leading, spacing: 20) {
-                      
-                            Text("Special Offers")
-                                .font(.system(size: 18, weight: .semibold))
-                                .foregroundStyle(Color("AppBlack"))
+                        Text("Special Offers")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundStyle(Color("AppBlack"))
                         
-                        if viewModel.offers.isEmpty {
+                        if viewModel.isLoadingOffers {
+                            ProgressView()
+                                .tint(persona.color)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .padding(.vertical, 12)
+                        } else if viewModel.offers.isEmpty {
                             Text("Choose location and budget to get offers!")
                                 .font(.system(size: 14, weight: .regular))
                                 .foregroundStyle(persona.color)
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 .padding(.vertical, 12)
                                 .onTapGesture {
-                                        showBudgetModal = true
-                                    }
+                                    showBudgetModal = true
+                                }
                         } else {
                             SpecialOffersSection(offers: viewModel.offers, persona: persona)
                         }
