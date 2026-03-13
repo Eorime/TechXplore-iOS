@@ -14,7 +14,7 @@ struct CustomButton: View {
             Text(title)
                 .foregroundColor(Color("AppWhite"))
                 .frame(maxWidth: width ?? .infinity, minHeight: height)
-                .background(isDisabled ? Color("AppGray").opacity(0.2) : color)
+                .background(isDisabled ? Color("AppCyan").opacity(0.2) : color)
                 .cornerRadius(6)
         }
         .disabled(isDisabled)
