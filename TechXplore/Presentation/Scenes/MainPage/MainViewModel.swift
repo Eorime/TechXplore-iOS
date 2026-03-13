@@ -29,11 +29,12 @@ final class MainViewModel: ObservableObject {
     func loadRecommendations(location: String, budget: Double) {
         isLoadingOffers = true
         offersError = nil
+        offers = []
         Task { @MainActor in
             do {
                 offers = try await recommendationUseCase.getRecommendations(location: location, budget: budget)
                 saveOffers(offers)
-//                NotificationManager.shared.handleNewOffers(offers)
+                NotificationManager.shared.handleNewOffers(offers)
             } catch {
                 print("Offers error: \(error)")
                 offersError = "Failed to load recommendations."

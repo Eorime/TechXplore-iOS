@@ -1,21 +1,28 @@
+// MainView.swift
 import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var router: AppRouter
     @StateObject private var viewModel = DIContainer.shared.makeMainViewModel()
+    @ObservedObject var notificationManager = NotificationManager.shared
     @State private var showBudgetModal = false
-    @Binding var selectedTab: Int
     @State private var showPersonaPicker = false
-
+    @Binding var selectedTab: Int
+    @Binding var showNotifications: Bool
+    
     var persona: TravelerType {
         router.currentUser?.persona ?? .gourmet
     }
     
     var body: some View {
         VStack(spacing: 0) {
-            PageHeaderView(title: "Welcome back,", username: router.currentUser?.username, onWalletTap: {
-                showBudgetModal = true
-            })
+            PageHeaderView(
+                title: "Welcome back,",
+                username: router.currentUser?.username,
+                onWalletTap: { showBudgetModal = true },
+                onBellTap: { showNotifications = true },
+                hasUnread: notificationManager.hasUnread
+            )
             .padding(.horizontal, 20)
             .padding(.bottom, 24)
             
@@ -23,8 +30,9 @@ struct MainView: View {
                 VStack(spacing: 30) {
                     PersonaBannerView(persona: persona, description: persona.shortText)
                         .onTapGesture {
-                                showPersonaPicker = true
-                            }
+                            showPersonaPicker = true
+                        }
+                    
                     VStack(alignment: .leading, spacing: 20) {
                         Text("Special Offers")
                             .font(.system(size: 18, weight: .semibold))
