@@ -45,6 +45,7 @@ struct PageHeaderView: View {
                             .font(.system(size: 20))
                             .foregroundStyle(Color("AppCyan"))
                     }
+                    .opacity(onWalletTap != nil ? 1 : 0)
                 
                 Button {
                     // notifications action
@@ -63,12 +64,4 @@ struct PageHeaderView: View {
         }
         .padding(.top, 10)
     }
-}
-
-#Preview {
-    VStack(spacing: 20) {
-        PageHeaderView(title: "Welcome back,", username: "Anon")
-        PageHeaderView(title: "Transactions", username: nil)
-    }
-    .padding(20)
 }

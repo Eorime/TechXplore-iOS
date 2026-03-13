@@ -1,7 +1,9 @@
 import SwiftUI
 
 struct QuizView: View {
+    @EnvironmentObject var router: AppRouter
     @ObservedObject var viewModel: QuizViewModel
+    @State private var showPersonaPicker = false
 
     var body: some View {
         if let question = viewModel.currentQuestion {
@@ -71,6 +73,13 @@ struct QuizView: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.horizontal, 34)
                     .foregroundStyle(Color("AppCyan"))
+                    .onTapGesture {
+                        showPersonaPicker = true
+                    }
+                    .sheet(isPresented: $showPersonaPicker) {
+                        PersonaPickerView()
+                            .environmentObject(router)
+                    }
                 //es linkia
             }
             .frame(maxWidth: .infinity)

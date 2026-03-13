@@ -14,7 +14,7 @@ struct TransactionRow: View {
                 Image(type.icon)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 25)
+                    .frame(height: 30)
                     .padding(.trailing, 8)
             } else {
                 Circle()
@@ -25,11 +25,11 @@ struct TransactionRow: View {
             
             VStack(alignment: .leading, spacing: 2) {
                 Text(item.receiver.username)
-                    .font(.system(size: 11, weight: .medium))
+                    .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(Color("AppBlack"))
                 if let type = travelerType {
                     Text(type.name)
-                        .font(.system(size: 9, weight: .regular))
+                        .font(.system(size: 11, weight: .regular))
                         .foregroundStyle(Color("AppBlack").opacity(0.6))
                 }
             }

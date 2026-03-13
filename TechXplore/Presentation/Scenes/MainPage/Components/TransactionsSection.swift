@@ -37,6 +37,7 @@ struct TransactionsSection: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
                 .padding(.bottom, 20)
+                .padding(.top, 20)
                 .padding(.horizontal, 4)
             }
         }

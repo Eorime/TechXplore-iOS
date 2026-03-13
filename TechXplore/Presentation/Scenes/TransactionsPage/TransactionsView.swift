@@ -8,7 +8,6 @@ struct TransactionsView: View {
         VStack(spacing: 0) {
             PageHeaderView(title: "Transactions", username: nil)
                 .padding(.horizontal, 20)
-                .padding(.bottom, 24)
             
             if viewModel.isLoading && viewModel.groupedTransactions.isEmpty {
                 Spacer()
@@ -58,14 +57,8 @@ struct TransactionsView: View {
                     .padding(.bottom, 30)
             }
         }
-        .padding(.top, 20)
         .onAppear {
             viewModel.loadTransactions()
         }
     }
-}
-
-#Preview {
-    TransactionsView()
-        .environmentObject(AppRouter())
 }

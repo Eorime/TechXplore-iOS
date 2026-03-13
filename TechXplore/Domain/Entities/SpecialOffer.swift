@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SpecialOffer: Decodable, Identifiable {
+struct SpecialOffer: Codable, Identifiable {
     let id = UUID()
     let name: String
     let address: String

@@ -86,17 +86,10 @@ struct SignupView: View {
                 }
             }
         }
-        .onAppear {
-            viewModel.onLoginSuccess = { user in
-                router.userDidLogin(user)
+            .onAppear {
+                viewModel.onRegisterSuccess = {
+                    dismiss()
             }
         }
-    }
-}
-
-#Preview {
-    NavigationStack {
-        SignupView()
-            .environmentObject(AppRouter())
     }
 }

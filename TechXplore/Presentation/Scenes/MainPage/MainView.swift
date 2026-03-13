@@ -5,6 +5,7 @@ struct MainView: View {
     @StateObject private var viewModel = DIContainer.shared.makeMainViewModel()
     @State private var showBudgetModal = false
     @Binding var selectedTab: Int
+    @State private var showPersonaPicker = false
 
     var persona: TravelerType {
         router.currentUser?.persona ?? .gourmet
@@ -21,7 +22,9 @@ struct MainView: View {
             ScrollView {
                 VStack(spacing: 30) {
                     PersonaBannerView(persona: persona, description: persona.shortText)
-                    
+                        .onTapGesture {
+                                showPersonaPicker = true
+                            }
                     VStack(alignment: .leading, spacing: 20) {
                         Text("Special Offers")
                             .font(.system(size: 18, weight: .semibold))
@@ -60,6 +63,12 @@ struct MainView: View {
             }
             .presentationDetents([.medium])
             .presentationCornerRadius(16)
+        }
+        .sheet(isPresented: $showPersonaPicker) {
+            PersonaPickerView()
+                .environmentObject(router)
+                .presentationDetents([.large])
+                .presentationCornerRadius(16)
         }
         .onAppear {
             viewModel.loadTransactions()

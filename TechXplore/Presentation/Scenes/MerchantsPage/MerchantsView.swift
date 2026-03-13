@@ -39,14 +39,8 @@ struct MerchantsView: View {
                 .scrollIndicators(.hidden)
             }
         }
-        .padding(.top, 20)
         .onAppear {
             viewModel.loadMerchants()
         }
     }
-}
-
-#Preview {
-    MerchantsView()
-        .environmentObject(AppRouter())
 }
