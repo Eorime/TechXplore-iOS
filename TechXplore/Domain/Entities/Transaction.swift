@@ -1,4 +1,3 @@
-// Features/Transactions/Models/TransactionItem.swift
 import Foundation
 
 struct TransactionItem: Decodable, Identifiable {

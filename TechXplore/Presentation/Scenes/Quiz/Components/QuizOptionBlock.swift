@@ -8,7 +8,7 @@ struct QuizOptionBlock: View {
     var body: some View {
         Button(action: onTap) {
             Text(option.text)
-                .font(.body) //aq kontraqtika da zoma
+                .font(.body)
                 .foregroundColor(Color("AppWhite"))
                 .padding(20)
                 .frame(width: 150, height: 133)

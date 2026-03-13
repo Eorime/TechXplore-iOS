@@ -1,10 +1,3 @@
-//
-//  RegisterRequest.swift
-//  TechXplore
-//
-//  Created by Eorime on 13.03.26.
-//
-
 struct RegisterRequest: Encodable {
     let username: String
     let email: String

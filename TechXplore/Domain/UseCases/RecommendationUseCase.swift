@@ -1,12 +1,3 @@
-//
-//  RecommendationUseCase.swift
-//  TechXplore
-//
-//  Created by Eorime on 13.03.26.
-//
-
-
-// Features/Home/UseCase/RecommendationUseCase.swift
 final class RecommendationUseCase {
     private let repository: RecommendationRepositoryProtocol
     

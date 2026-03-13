@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct PersonaBannerView: View {
@@ -27,5 +26,3 @@ struct PersonaBannerView: View {
         .frame(maxWidth: .infinity)
     }
 }
-
-//choose another type when u click on it, dismissit 

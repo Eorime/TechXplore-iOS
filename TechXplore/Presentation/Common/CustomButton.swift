@@ -1,6 +1,5 @@
 import SwiftUI
 
-// eqneba gadacemuli width, height, fontis zoma, feri, border radiusi
 struct CustomButton: View {
     let title: String
     var width: CGFloat? = nil

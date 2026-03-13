@@ -80,7 +80,6 @@ struct QuizView: View {
                         PersonaPickerView()
                             .environmentObject(router)
                     }
-                //es linkia
             }
             .frame(maxWidth: .infinity)
             .offset(y: -40)

@@ -4,7 +4,6 @@ struct ResultView: View {
     let result: TravelerType
     let onFinish: () -> Void
     
-    //movida backidan result da davwere
     var body: some View {
         VStack(spacing: 0) {
             Text("Congrats! You are the...")

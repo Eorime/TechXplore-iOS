@@ -1,12 +1,3 @@
-//
-//  RecommendationRepositoryProtocol.swift
-//  TechXplore
-//
-//  Created by Eorime on 13.03.26.
-//
-
-
-// Features/Home/Repository/RecommendationRepository.swift
 protocol RecommendationRepositoryProtocol {
     func getRecommendations(location: String, budget: Double) async throws -> [SpecialOffer]
 }
