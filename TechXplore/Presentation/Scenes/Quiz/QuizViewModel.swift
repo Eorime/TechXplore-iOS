@@ -37,6 +37,7 @@ final class QuizViewModel: ObservableObject {
         if currentQuestionIndex == questions.count {
             quizComplete = true
             result = useCase.getResult()
+            print("QUIZ COMPLETE, result: \(String(describing: result))")
         }
     }
     

@@ -1,7 +1,8 @@
-//
-//  TransactionsView.swift
-//  TechXplore
-//
-//  Created by Eorime on 12.03.26.
-//
+import SwiftUI
 
+struct TransactionsView: View {
+    var body: some View {
+        Text("tranzaqciebi")
+
+    }
+}

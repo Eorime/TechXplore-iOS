@@ -10,14 +10,22 @@ import SwiftUI
 struct MainTabView: View {
     @EnvironmentObject var router: AppRouter
     
+    init() {
+        UITabBar.appearance().unselectedItemTintColor = UIColor(named: "AppCyan")?.withAlphaComponent(0.5)
+    }
+    
     var body: some View {
         TabView {
-            Text("Tab 1")
-                .tabItem { Label("", systemImage: "house") }
-            Text("Tab 2")
-                .tabItem { Label("", systemImage: "magnifyingglass") }
-            Text("Tab 3")
-                .tabItem { Label("", systemImage: "person") }
+            TransactionsView()
+                .padding(.horizontal, 20)
+                .tabItem { Label("", image: "transactions") }
+            MainView()
+                .padding(.horizontal, 20)
+                .tabItem { Label("", image: "home") }
+            MerchantsView()
+                .padding(.horizontal, 20)
+                .tabItem { Label("", image: "shops") }
         }
+        .tint(Color("AppCyan"))
     }
 }

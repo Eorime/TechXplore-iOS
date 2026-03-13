@@ -9,8 +9,10 @@ struct ResultView: View {
         VStack {
             Text("Congrats! You are the...")
                 .foregroundStyle(Color(result.color))
+                .font(.system(size: 24, weight: .regular))
             Text(result.name)
                 .foregroundStyle(Color(result.color))
+                .font(.system(size: 32, weight: .bold))
             
             Image(result.icon)
                 .resizable()
@@ -19,5 +21,11 @@ struct ResultView: View {
             CustomButton(title: "Finish", width: 117, height: 35, action: onFinish, color: result.color)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
+#Preview {
+    ResultView(result: .culture) {
+        print("Finish tapped")
     }
 }

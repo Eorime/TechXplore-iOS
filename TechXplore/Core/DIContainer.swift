@@ -9,4 +9,8 @@ final class DIContainer {
             repository: QuizRepository()
         )
     }
+    
+    func makeAuthViewModel() -> AuthViewModel {
+        AuthViewModel(useCase: AuthUseCase(repository: AuthRepository()))
+    }
 }

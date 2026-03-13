@@ -1,5 +1,6 @@
-struct User {
+struct User: Decodable {
     let id: String
     let email: String
-    var persona: TravelerType? //nil onboarding unda
+    let username: String
+    var persona: TravelerType?
 }

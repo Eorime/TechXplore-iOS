@@ -1,11 +1,3 @@
-//
-//  OnboardingView.swift
-//  TechXplore
-//
-//  Created by Eorime on 13.03.26.
-//
-
-
 import SwiftUI
 
 struct OnboardingView: View {
@@ -13,13 +5,19 @@ struct OnboardingView: View {
     @StateObject private var viewModel = DIContainer.shared.makeQuizViewModel()
     
     var body: some View {
-        QuizView(viewModel: viewModel)
-            .padding(.horizontal, 30)
-            .fullScreenCover(isPresented: $viewModel.quizComplete) {
-                ResultView(result: viewModel.result ?? .gourmet) {
-                    // quiz done → tell router
-                    router.onboardingDidComplete(persona: viewModel.result ?? .gourmet)
-                }
+        ZStack {
+            if viewModel.currentQuestion != nil {
+                QuizView(viewModel: viewModel)
+                    .padding(.horizontal, 30)
             }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .fullScreenCover(isPresented: $viewModel.quizComplete) {
+            ResultView(result: viewModel.result ?? .gourmet) {
+                viewModel.quizComplete = false
+                router.onboardingDidComplete(persona: viewModel.result ?? .gourmet)
+            }
+            .environmentObject(router)
+        }
     }
 }
