@@ -5,8 +5,6 @@
 //  Created by Eorime on 13.03.26.
 //
 
-
-// Features/Home/Views/SpecialOfferCard.swift
 import SwiftUI
 
 struct SpecialOfferCard: View {
@@ -16,18 +14,18 @@ struct SpecialOfferCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(offer.name)
-                .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(Color("AppCyan"))
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundStyle(Color("AppBlack"))
             Text(offer.address)
-                .font(.system(size: 13, weight: .regular))
-                .foregroundStyle(Color("AppCyan").opacity(0.7))
+                .font(.system(size: 12, weight: .regular))
+                .foregroundStyle(Color("AppBlack").opacity(0.7))
             Text(offer.matchReason)
-                .font(.system(size: 13, weight: .regular))
-                .foregroundStyle(Color("AppCyan").opacity(0.7))
+                .font(.system(size: 12, weight: .regular))
+                .foregroundStyle(Color("AppBlack").opacity(0.7))
         }
-        .padding(16)
+        .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color(persona.color).opacity(0.2))
+        .background(Color(persona.color).opacity(0.1))
         .cornerRadius(12)
     }
 }

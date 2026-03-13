@@ -9,8 +9,8 @@ enum NetworkError: Error {
 
 final class NetworkService {
     static let shared = NetworkService()
-    private let baseURL = "https://baseurl.com"
-    
+    private let baseURL = "http://20.238.20.172:5000"
+
     private init() {}
     
     func post<T: Decodable, B: Encodable>(endpoint: String, body: B) async throws -> T {

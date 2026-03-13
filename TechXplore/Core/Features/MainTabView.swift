@@ -17,13 +17,13 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             TransactionsView()
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 5)
                 .tabItem { Label("", image: "transactions") }
             MainView()
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 5)
                 .tabItem { Label("", image: "home") }
             MerchantsView()
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 5)
                 .tabItem { Label("", image: "shops") }
         }
         .tint(Color("AppCyan"))
