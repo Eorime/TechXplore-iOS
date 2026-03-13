@@ -40,9 +40,3 @@ struct ResultView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
-
-#Preview {
-    ResultView(result: .culture) {
-        print("Finish tapped")
-    }
-}

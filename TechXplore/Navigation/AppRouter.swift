@@ -33,6 +33,7 @@ final class AppRouter: ObservableObject {
     
     func onboardingDidComplete(persona: TravelerType) {
         currentUser?.persona = persona
+        UserDefaults.standard.removeObject(forKey: "savedOffers")
         Task {
             try? await UserRepository().setPersona(persona)
         }

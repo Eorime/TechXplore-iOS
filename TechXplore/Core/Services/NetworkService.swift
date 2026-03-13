@@ -39,6 +39,7 @@ final class NetworkService {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 120
         if let token = TokenManager.shared.token {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             print("Attaching token: \(token)")

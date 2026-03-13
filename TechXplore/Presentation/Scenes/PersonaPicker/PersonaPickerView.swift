@@ -51,11 +51,12 @@ struct PersonaPickerView: View {
     
     private func selectPersona(_ type: TravelerType) {
         isLoading = true
+        UserDefaults.standard.removeObject(forKey: "savedOffers")
         Task {
             try? await UserRepository().setPersona(type)
             await MainActor.run {
                 isLoading = false
-                router.onboardingDidComplete(persona: type)
+                router.currentUser?.persona = type
                 dismiss()
             }
         }

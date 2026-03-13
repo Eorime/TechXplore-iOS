@@ -1,9 +1,8 @@
-// MainView.swift
 import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var router: AppRouter
-    @StateObject private var viewModel = DIContainer.shared.makeMainViewModel()
+    @ObservedObject var viewModel: MainViewModel
     @ObservedObject var notificationManager = NotificationManager.shared
     @State private var showBudgetModal = false
     @State private var showPersonaPicker = false

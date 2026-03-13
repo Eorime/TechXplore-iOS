@@ -6,7 +6,10 @@ final class MainViewModel: ObservableObject {
     @Published var isLoadingOffers = false
     @Published var offersError: String?
     @Published var transactions: [TransactionItem] = []
+    
     private let offersKey = "savedOffers"
+    private let locationKey = "savedLocation"
+    private let budgetKey = "savedBudget"
     
     private let recommendationUseCase: RecommendationUseCase
     
@@ -26,7 +29,14 @@ final class MainViewModel: ObservableObject {
         UserDefaults.standard.set(data, forKey: offersKey)
     }
     
+    func clearOffers() {
+        offers = []
+        UserDefaults.standard.removeObject(forKey: offersKey)
+    }
+    
     func loadRecommendations(location: String, budget: Double) {
+        UserDefaults.standard.set(location, forKey: locationKey)
+        UserDefaults.standard.set(budget, forKey: budgetKey)
         isLoadingOffers = true
         offersError = nil
         offers = []
@@ -43,6 +53,14 @@ final class MainViewModel: ObservableObject {
         }
     }
     
+    func refreshIfNeeded() {
+        guard offers.isEmpty,
+              let location = UserDefaults.standard.string(forKey: locationKey),
+              UserDefaults.standard.double(forKey: budgetKey) > 0 else { return }
+        let budget = UserDefaults.standard.double(forKey: budgetKey)
+        loadRecommendations(location: location, budget: budget)
+    }
+    
     func loadTransactions() {
         Task { @MainActor in
             do {
@@ -53,6 +71,4 @@ final class MainViewModel: ObservableObject {
             }
         }
     }
-    
-    
 }

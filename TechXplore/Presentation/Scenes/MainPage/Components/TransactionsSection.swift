@@ -43,8 +43,3 @@ struct TransactionsSection: View {
         }
     }
 }
-
-#Preview {
-    TransactionsSection(transactions: [])
-        .padding(20)
-}

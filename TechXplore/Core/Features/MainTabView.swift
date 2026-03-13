@@ -3,6 +3,7 @@ import SwiftUI
 struct MainTabView: View {
     @EnvironmentObject var router: AppRouter
     @ObservedObject var notificationManager = NotificationManager.shared
+    @StateObject private var mainViewModel = DIContainer.shared.makeMainViewModel()
     @State private var selectedTab = 1
     @State private var showNotifications = false
     
@@ -11,7 +12,7 @@ struct MainTabView: View {
             TransactionsView()
                 .tabItem { Label("", image: "transactions") }
                 .tag(0)
-            MainView(selectedTab: $selectedTab, showNotifications: $showNotifications)
+            MainView(viewModel: mainViewModel, selectedTab: $selectedTab, showNotifications: $showNotifications)
                 .tabItem { Label("", image: "home") }
                 .tag(1)
             MerchantsView()
@@ -23,6 +24,10 @@ struct MainTabView: View {
             NotificationsModalView(manager: notificationManager)
                 .presentationDetents([.medium, .large])
                 .presentationCornerRadius(16)
+        }
+        .onChange(of: router.currentUser?.persona) { _ in
+            mainViewModel.clearOffers()
+            mainViewModel.refreshIfNeeded()
         }
     }
 }
