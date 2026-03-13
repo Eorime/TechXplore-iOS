@@ -15,6 +15,7 @@ final class AppRouter: ObservableObject {
         // On launch: no user → go to auth
         // replace es logic with real session checking later
         self.state = .main
+        self.currentUser = User(id: "1", email: "test@test.com", username: "Anon", persona: .gourmet)
     }
     
     func userDidLogin(_ user: User) {
