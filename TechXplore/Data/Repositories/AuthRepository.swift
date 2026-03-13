@@ -1,16 +1,8 @@
-//
-//  AuthRepositoryProtocol.swift
-//  TechXplore
-//
-//  Created by Eorime on 13.03.26.
-//
-
-
 import Foundation
 
 protocol AuthRepositoryProtocol {
     func login(email: String, password: String) async throws -> User
-    func register(username: String, email: String, password: String) async throws -> User
+    func registerOnly(username: String, email: String, password: String) async throws
 }
 
 final class AuthRepository: AuthRepositoryProtocol {
@@ -23,12 +15,9 @@ final class AuthRepository: AuthRepositoryProtocol {
         return parseUser(from: response.token)
     }
 
-    func register(username: String, email: String, password: String) async throws -> User {
+    func registerOnly(username: String, email: String, password: String) async throws {
         let body = RegisterRequest(username: username, email: email, password: password)
-        print("Sending register request...")
         let _: MessageResponse = try await network.post(endpoint: "/api/Auth/register", body: body)
-        print("Register succeeded, now logging in...")
-        return try await login(email: email, password: password)
     }
     
     private func parseUser(from token: String) -> User {

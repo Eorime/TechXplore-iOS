@@ -11,27 +11,34 @@ struct TransactionsSection: View {
                 .foregroundStyle(Color("AppBlack"))
                 .padding(.bottom, 8)
             
-            ScrollView {
-                VStack(spacing: 0) {
-                    ForEach(Array(transactions.enumerated()), id: \.offset) { index, transaction in
-                        TransactionRow(item: transaction, isLast: index == transactions.count - 1)
+            if transactions.isEmpty {
+                Text("No transactions as of now.")
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundStyle(Color("AppCyan"))
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.vertical, 12)
+            } else {
+                ScrollView {
+                    VStack(spacing: 0) {
+                        ForEach(Array(transactions.enumerated()), id: \.offset) { index, transaction in
+                            TransactionRow(item: transaction, isLast: index == transactions.count - 1)
+                        }
                     }
                 }
+                .scrollIndicators(.hidden)
+                .frame(maxHeight: 180)
+                
+                Button {
+                    onSeeMore?()
+                } label: {
+                    Text("See all")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundStyle(Color("AppCyan"))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+                .padding(.bottom, 20)
+                .padding(.horizontal, 4)
             }
-            .scrollIndicators(.hidden)
-            .frame(height: 180)
-            
-            Button {
-                onSeeMore?()
-            } label: {
-                Text("See all")
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundStyle(Color("AppCyan"))
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-            }
-            .padding(.top, 8)
-            .padding(.bottom, 20)
-            .padding(.horizontal, 4)
         }
     }
 }

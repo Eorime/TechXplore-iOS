@@ -9,7 +9,7 @@ final class AuthUseCase {
         try await repository.login(email: email, password: password)
     }
     
-    func register(username: String, email: String, password: String) async throws -> User {
-        try await repository.register(username: username, email: email, password: password)
+    func registerOnly(username: String, email: String, password: String) async throws {
+        try await repository.registerOnly(username: username, email: email, password: password)
     }
 }

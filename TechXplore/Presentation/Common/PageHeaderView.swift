@@ -10,6 +10,7 @@ import SwiftUI
 struct PageHeaderView: View {
     let title: String
     let username: String?
+    var onWalletTap: (() -> Void)? = nil
     
     var body: some View {
         HStack(alignment: .center) {
@@ -38,12 +39,12 @@ struct PageHeaderView: View {
             
             HStack(spacing: 16) {
                 Button {
-                    // wallet action
-                } label: {
-                    Image("wallet")
-                        .font(.system(size: 20))
-                        .foregroundStyle(Color("AppCyan"))
-                }
+                        onWalletTap?()
+                    } label: {
+                        Image("wallet")
+                            .font(.system(size: 20))
+                            .foregroundStyle(Color("AppCyan"))
+                    }
                 
                 Button {
                     // notifications action

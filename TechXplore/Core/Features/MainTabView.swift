@@ -28,7 +28,7 @@ struct MainTabView: View {
             MerchantsView()
                 .padding(.horizontal, 5)
                 .tabItem { Label("", image: "shops") }
-                .tag(0)
+                .tag(2)
         }
         .tint(Color("AppCyan"))
     }

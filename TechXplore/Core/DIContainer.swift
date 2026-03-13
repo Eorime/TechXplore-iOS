@@ -17,4 +17,8 @@ final class DIContainer {
     func makeTransactionsViewModel() -> TransactionsViewModel {
         TransactionsViewModel(useCase: TransactionUseCase(repository: TransactionRepository()))
     }
+    
+    func makeMainViewModel() -> MainViewModel {
+        MainViewModel(recommendationUseCase: RecommendationUseCase(repository: RecommendationRepository()))
+    }
 }

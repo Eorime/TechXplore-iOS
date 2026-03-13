@@ -7,6 +7,7 @@ final class AuthViewModel: ObservableObject {
     
     private let useCase: AuthUseCase
     var onLoginSuccess: ((User) -> Void)?
+    var onRegisterSuccess: (() -> Void)?
     
     init(useCase: AuthUseCase) {
         self.useCase = useCase
@@ -32,8 +33,8 @@ final class AuthViewModel: ObservableObject {
         print("Registering: username=\(username), email=\(email), password=\(password)")
         Task { @MainActor in
             do {
-                let user = try await useCase.register(username: username, email: email, password: password)
-                onLoginSuccess?(user)
+                try await useCase.registerOnly(username: username, email: email, password: password)
+                onRegisterSuccess?()
             } catch NetworkError.serverError(let code) {
                 switch code {
                 case 409: errorMessage = "An account with this email already exists."
@@ -42,7 +43,6 @@ final class AuthViewModel: ObservableObject {
                 }
             } catch {
                 print("Register error: \(error)")
-                print("Full error: \(error)")
                 errorMessage = "Registration failed: \(error.localizedDescription)"
             }
             isLoading = false
